@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+    <title>Car Forecasting</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body>
+
+	<h1>Cars Forecasting</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+  <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="year" placeholder="year" required="required" />
+      <small id="YHELP" class="form-text text-muted">Enter the year of the car</small>
+        <input type="text" name="odomoter" placeholder="odomoter" required="required" />
+        <small id="ODHELP" class="form-text text-muted">Enter five-digit number with decimal after</small>
+		<input type="text" name="lat" placeholder="lat" required="required" />
+    <small id="LAHELP" class="form-text text-muted">Enter two-digit number with decimal atfer,positive or negative</small>
+     <input type="text" name="long" placeholder="long" required="required" />
+     <small id="LOHELP" class="form-text text-muted">Enter two-digit number with decimal atfer,positive or negative</small>
+        <input type="text" name="drive_fwd" placeholder="drive_fwd" required="required" />
+        <small id="FWHELP" class="form-text text-muted">Enter one or zero</small>
+      <input type="text" name="driv_rwd" placeholder="driv_rwd" required="required" />
+      <small id="RWHELP" class="form-text text-muted">Enter one or zero</small>
+				<button type="submit" class="btn btn-primary btn-block btn-large">Predict price</button>
+    </form>
+
+   <div>
+  {{ prediction_text }}
+   </div>
+
+    </div>
+
+
+</body>
+</html>
