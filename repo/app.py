@@ -2,8 +2,9 @@ from flask import Flask,render_template,request
 import pandas as pd
 from sklearn.externals import joblib
 import numpy as np
+import pickle
 app=Flask(__name__)
-model=joblib.load(open("cars_useds_prediction.pkl",'rb'))
+model=pickle.load(open("cars_useds_predictions.pkl",'rb'))
 @app.route('/')
 def home():
     return render_template("home.html")
