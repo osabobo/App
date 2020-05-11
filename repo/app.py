@@ -1,6 +1,5 @@
 from flask import Flask,render_template,request
 import pandas as pd
-from sklearn.externals import joblib
 import numpy as np
 import pickle
 app=Flask(__name__)
