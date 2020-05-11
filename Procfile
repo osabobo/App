@@ -1,1 +1,1 @@
-web: gunicorn Flask_sample.wsgi:application --log-file - 
+web: gunicorn repo.wsgi:application --log-file - 
