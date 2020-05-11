@@ -1,1 +1,2 @@
-web: gunicorn repo.wsgi:application --log-file - 
+
+web: gunicorn --repo --access-logfile - --error-logfile - run:application
