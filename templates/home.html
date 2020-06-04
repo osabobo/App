@@ -13,18 +13,18 @@
 
 <body>
 
-	<h1>Cars Forecasting</h1>
+	<h1>Cars Forecasting price</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
   <form action="{{ url_for('predict')}}" method="post">
     	<input type="text" name="year" placeholder="year" required="required" /><br>
       <small id="YHELP" class="form-text text-muted">Enter the year of the car</small>
         <input type="text" name="model" placeholder="Model" required="required" /><br>
-
+        <small id="MHELP" class="form-text text-muted">Enter the correct model name</small>
 		    <input type="text" name="manufacturer" placeholder="Manufacturer" required="required" /><br>
-
+        <small id="MAHELP" class="form-text text-muted">Enter the correct manufacturer name</small>
          <input type="text" name="transmission" placeholder="Transmission" required="required" /><br>
-
+         <small id="THELP" class="form-text text-muted">Enter the correct transmission like auto or manual</small>
             <button type="submit" class="btn btn-primary btn-block btn-large">Predict price</button>
     </form>
 
