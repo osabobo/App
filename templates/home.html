@@ -17,19 +17,15 @@
 
      <!-- Main Input For Receiving Query to our ML -->
   <form action="{{ url_for('predict')}}" method="post">
-    	<input type="text" name="year" placeholder="year" required="required" />
+    	<input type="text" name="year" placeholder="year" required="required" /><br>
       <small id="YHELP" class="form-text text-muted">Enter the year of the car</small>
-        <input type="text" name="odomoter" placeholder="odomoter" required="required" />
-        <small id="ODHELP" class="form-text text-muted">Enter five-digit number with decimal after for odometer eg(34444.90)</small>
-		<input type="text" name="lat" placeholder="lat" required="required" />
-    <small id="LAHELP" class="form-text text-muted">Enter two-digit number with decimal after,positive or negative for latitude eg(35.3,-23.4)</small>
-     <input type="text" name="long" placeholder="long" required="required" />
-     <small id="LOHELP" class="form-text text-muted">Enter two-digit number with decimal after,positive or negative for longitude, same as lat</small>
-        <input type="text" name="drive_fwd" placeholder="drivefwd" required="required" />
-        <small id="FWHELP" class="form-text text-muted">Enter one or zero for frontwheel drive</small>
-      <input type="text" name="driv_rwd" placeholder="drivrwd" required="required" />
-      <small id="RWHELP" class="form-text text-muted">Enter one or zero rearwheel drive</small>
-				<button type="submit" class="btn btn-primary btn-block btn-large">Predict price</button>
+        <input type="text" name="model" placeholder="Model" required="required" /><br>
+
+		    <input type="text" name="manufacturer" placeholder="Manufacturer" required="required" /><br>
+
+         <input type="text" name="transmission" placeholder="Transmission" required="required" /><br>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict price</button>
     </form>
 
    <div>

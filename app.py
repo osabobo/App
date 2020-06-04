@@ -1,10 +1,12 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,url_for
 import pandas as pd
+from pycaret.regression import *
 import numpy as np
 import pickle
 
 app=Flask(__name__)
-model=pickle.load(open("cars_useds_predictions.pkl",'rb'))
+model=load_model('deployment_28042020')
+cols=['year','model','manufacturer','transmission']
 
 
 @app.route('/')
@@ -13,10 +15,11 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
-    prediction = round(prediction[0], 2)
+    int_features = [x for x in request.form.values()]
+    final_features = np.array(int_features)
+    dat_useen=pd.DataFrame([final_features],columns=cols)
+    prediction = predict_model(model,data=dat_useen,round=0)
+    prediction = int(prediction.Label[0])
     return render_template("home.html", prediction_text='Price should be $ {}'.format(prediction))
 
 
